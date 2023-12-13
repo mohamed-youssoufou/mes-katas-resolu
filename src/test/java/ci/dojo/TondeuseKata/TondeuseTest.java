@@ -15,6 +15,8 @@ class TondeuseTest {
     private String[] zoneOfWorking;
     private String[] initializeTondeusePosition;
 
+    private static String perimetter;
+
 
     @Test void shoudValidateInputWithPattern_2INTSpaceBetween_2INT1CHARSpaceBetween_DrivenWithAlowinCharDGA(){
 
@@ -90,7 +92,7 @@ class TondeuseTest {
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
 
         // when
-        tondeuse.pilot("G A");
+        tondeuse.pilot("GA");
         // then
         assertEquals("0 2 W", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -119,7 +121,7 @@ class TondeuseTest {
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
 
         // when
-        tondeuse.pilot("G A G");
+        tondeuse.pilot("GAG");
         // then
         assertEquals("0 2 S", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -148,7 +150,7 @@ class TondeuseTest {
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
 
         // when
-        tondeuse.pilot("G A G A");
+        tondeuse.pilot("GAGA");
         // then
         assertEquals("0 1 S", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -176,7 +178,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("G A G A G");
+        tondeuse.pilot("GAGAG");
         // then
         assertEquals("0 1 E", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -204,7 +206,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("G A G A G A");
+        tondeuse.pilot("GAGAGA");
         // then
         assertEquals("1 1 E", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -232,7 +234,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("G A G A G A G");
+        tondeuse.pilot("GAGAGAG");
         // then
         assertEquals("1 1 N", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -260,7 +262,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("G A G A G A G A");
+        tondeuse.pilot("GAGAGAGA");
         // then
         assertEquals("1 2 N", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -288,7 +290,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("G A G A G A G A A");
+        tondeuse.pilot("GAGAGAGAA");
         // then
         assertEquals("1 3 N", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -342,7 +344,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A");
+        tondeuse.pilot("AA");
         // then
         assertEquals("5 3 E", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -369,7 +371,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A D");
+        tondeuse.pilot("AAD");
         // then
         assertEquals("5 3 S", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -396,7 +398,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A D A");
+        tondeuse.pilot("AADA");
         // then
         assertEquals("5 2 S", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -423,7 +425,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A D A A");
+        tondeuse.pilot("AADAA");
         // then
         assertEquals("5 1 S", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -450,7 +452,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A D A A D");
+        tondeuse.pilot("AADAAD");
         // then
         assertEquals("5 1 W", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -477,7 +479,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A D A A D A");
+        tondeuse.pilot("AADAADA");
         // then
         assertEquals("4 1 W", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -504,7 +506,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A D A A D A D");
+        tondeuse.pilot("AADAADAD");
         // then
         assertEquals("4 1 N", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -531,7 +533,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A D A A D A D D");
+        tondeuse.pilot("AADAADADD");
         // then
         assertEquals("4 1 E", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),
@@ -559,7 +561,7 @@ class TondeuseTest {
         );
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
         // when
-        tondeuse.pilot("A A D A A D A D D A");
+        tondeuse.pilot("AADAADADDA");
         // then
         assertEquals("5 1 E", String.format("%s %s %s",
                 tondeuse.getCoordonner().getX(),

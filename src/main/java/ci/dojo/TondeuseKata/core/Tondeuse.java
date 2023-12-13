@@ -30,12 +30,12 @@ public class Tondeuse {
     //Derrière: SOUTH
 
     public void pilot(@NotNull String deplacement) {
-        Object[] positions = deplacement.toUpperCase().split(" ");
+        Object[] positions = deplacement.toUpperCase().split("");
         for (Object currentPosition: positions) {
             
             this.currentPosition = currentPosition;
 
-            if(!not_go_out_workspace(currentPosition)){
+            if(!not_go_out_workspace()){
                 continue;
             }
 
@@ -166,7 +166,7 @@ public class Tondeuse {
         this.coordonner.setY(this.coordonner.getY()+1);
     }
 
-    private boolean not_go_out_workspace(Object currentPosition){
+    private boolean not_go_out_workspace(){
         if(this.coordonner.getDirection().equals("W") && this.coordonner.getX() == 0 && this.currentPosition.equals("A")){
             return false;
         }

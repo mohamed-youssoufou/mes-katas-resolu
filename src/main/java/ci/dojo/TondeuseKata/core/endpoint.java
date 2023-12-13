@@ -10,10 +10,13 @@ public class endpoint {
     private static String[] zoneOfWorking;
     private static String[] initializeTondeusePosition;
 
+    private static String perimetter;
+
     public static void main(String[] args) {
         Input input = new FileSystemInput();
         zoneOfWorking = input.sharePosition().get(0).split(" ");
         initializeTondeusePosition = input.sharePosition().get(1).split(" ");
+        perimetter = input.sharePosition().get(2);
 
         // Given
         Terrain terrain = new Terrain(
@@ -28,7 +31,7 @@ public class endpoint {
         Tondeuse tondeuse = new Tondeuse(UUID.randomUUID(), "V1.0", coordonner, terrain);
 
         // when
-        tondeuse.pilot("G A G A G A G A A");
+        tondeuse.pilot(perimetter);
 
         System.out.println(tondeuse);
     }
